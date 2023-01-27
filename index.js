@@ -4,6 +4,8 @@ const fs = require('fs');
 const generateHTML = require('./src/generateHTML');
 
 const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 
 // Initialize Empty array for team members to be added to
 const teamArray = [];
@@ -93,12 +95,53 @@ function addEngineer() {
         }
     ])
     .then(answers => {
-        const engineer = new Engineer(anwsers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGithub);
+        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
         teamArray.push(engineer);
+        console.log(teamArray);
         inquirer.prompt(menuQuestions)
         .then(handleMenuChoice);
     })
 }
+
+function addIntern() {
+    inquirer.prompt([
+
+        {
+            message: 'What is the interns name?',
+            type: 'input',
+            name: 'internName',
+        },
+        {
+            message: 'What is the interns ID?',
+            type: 'input',
+            name: 'internId',
+        },
+        {
+            message: 'What is the interns Email?',
+            type: 'input',
+            name: 'internEmail',
+        },
+        {
+            message: 'What school does the intern attend?',
+            type: 'input',
+            name: 'internSchool',
+        },
+    ])
+    .then(answers => {
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        teamArray.push(intern);
+        console.log(teamArray);
+        inquirer.prompt(menuQuestions)
+        .then(handleMenuChoice);
+    })
+}
+
+
+
+
+
+
+
 
 
 

@@ -10,10 +10,10 @@ return `
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
+    <header>My Team</header>
     <main>
-${buildTeam(data)}
-</main>
+    ${buildTeam(data)}
+    </main>
 </body>
 </html>
 `
@@ -21,22 +21,67 @@ ${buildTeam(data)}
 
 function buildTeam(team){
     function managerHtml(managerObj){
-        return`<h1 class="">${managerObj.getName()}</h1>`
-    }
+        return`
+        <div class = 'personCard'>
+            <div class = 'titleInfo'>
+                <h2>${managerObj.getName()}</h2>
+                <h3>${managerObj.getRole()}</h3>
+            </div>
+            <div class = 'personalInfo'>
+                <h3>${managerObj.getId()}</h3>
+                <h3>${managerObj.getEmail()}</h3>
+                <h3>${managerObj.getOfficeNumber()}</h3>
+            </div>
+        </div>`
+    };
 
-    function internHtml() {
+    function engineerHtml(engineerObj){
+        return`
+        <div class = 'personCard'>
+            <div class = 'titleInfo'>
+                <h2>${engineerObj.getName()}</h2>
+                <h3>${engineerObj.getRole()}</h3>
+            </div>
+            <div class = 'personalInfo'>
+                <h3>${engineerObj.getId()}</h3>
+                <h3>${engineerObj.getEmail()}</h3>
+                <h3>${engineerObj.getGithub()}</h3>
+            </div>
+        </div>`
+    };
 
-    }
+    function internHtml(internObj){
+        return`
+        <div class = 'personCard'>
+            <div class = 'titleInfo'>
+                <h2>${internObj.getName()}</h2>
+                <h3>${internObj.getRole()}</h3>
+            </div>
+            <div class = 'personalInfo'>
+                <h3>${internObj.getId()}</h3>
+                <h3>${internObj.getEmail()}</h3>
+                <h3>${internObj.getSchool()}</h3>
+            </div>
+        </div>`
+    };
+    
+
     const html = []
 
     html.push(
         team.filter((item) => item.getRole() === 'Manager')
         .map((manager)=> managerHtml(manager)));
 
+    html.push(
+        team.filter((item) => item.getRole() === 'Engineer')
+        .map((engineer)=> engineerHtml(engineer)));
 
+    html.push(
+        team.filter((item) => item.getRole() === 'Intern')
+        .map((intern)=> internHtml(intern)));
 
     return html.join('')
-}
+};
 
 
 
