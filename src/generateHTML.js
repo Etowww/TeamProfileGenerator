@@ -28,9 +28,9 @@ function buildTeam(team){
                 <h3>${managerObj.getRole()}</h3>
             </div>
             <div class = 'personalInfo'>
-                <h3>${managerObj.getId()}</h3>
-                <h3>${managerObj.getEmail()}</h3>
-                <h3>${managerObj.getOfficeNumber()}</h3>
+                <h3>ID: ${managerObj.getId()}</h3>
+                <h3>Email: <a href="mailto:${managerObj.getEmail()}">${managerObj.getEmail()}</a></h3>
+                <h3>Office Number: ${managerObj.getOfficeNumber()}</h3>
             </div>
         </div>`
     };
@@ -43,9 +43,9 @@ function buildTeam(team){
                 <h3>${engineerObj.getRole()}</h3>
             </div>
             <div class = 'personalInfo'>
-                <h3>${engineerObj.getId()}</h3>
-                <h3>${engineerObj.getEmail()}</h3>
-                <h3>${engineerObj.getGithub()}</h3>
+                <h3>ID: ${engineerObj.getId()}</h3>
+                <h3>Email: <a href="mailto:${engineerObj.getEmail()}">${engineerObj.getEmail()}</a></h3>
+                <h3>Github Account: <a href="https://github.com/${engineerObj.getGithub()}">${engineerObj.getGithub()}</a></h3>
             </div>
         </div>`
     };
@@ -58,9 +58,9 @@ function buildTeam(team){
                 <h3>${internObj.getRole()}</h3>
             </div>
             <div class = 'personalInfo'>
-                <h3>${internObj.getId()}</h3>
-                <h3>${internObj.getEmail()}</h3>
-                <h3>${internObj.getSchool()}</h3>
+                <h3>ID: ${internObj.getId()}</h3>
+                <h3>Email: <a href="mailto:${internObj.getEmail()}">${internObj.getEmail()}</a></h3>
+                <h3>School: ${internObj.getSchool()}</h3>
             </div>
         </div>`
     };
