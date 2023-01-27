@@ -97,7 +97,6 @@ function addEngineer() {
     .then(answers => {
         const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
         teamArray.push(engineer);
-        console.log(teamArray);
         inquirer.prompt(menuQuestions)
         .then(handleMenuChoice);
     })
@@ -130,7 +129,6 @@ function addIntern() {
     .then(answers => {
         const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
         teamArray.push(intern);
-        console.log(teamArray);
         inquirer.prompt(menuQuestions)
         .then(handleMenuChoice);
     })
